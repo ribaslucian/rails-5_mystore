@@ -18,8 +18,8 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :state, limit: 64
       t.string :country, limit: 64
 
-      t.decimal :latitude, precision: 3, scale: 6
-      t.decimal :longitude,  precision: 3, scale: 6
+      # t.decimal :latitude, precision: 3, scale: 6
+      # t.decimal :longitude,  precision: 3, scale: 6
     end
   end
 end

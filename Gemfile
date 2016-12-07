@@ -84,12 +84,10 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'cpf_cnpj', '~> 0.3.0'
 
 group :development do
-  # for conversions see: https://github.com/slim-template/html2slim
-  # gem 'html2slim', '~> 0.2.0'
-  # development basic server
-  gem 'thin'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3', '>= 1.3.12'
+  # development basic server
+  gem 'thin'
   # rails application console
   gem 'pry-rails', github: 'rweng/pry-rails'
   # generate image object relational
@@ -109,7 +107,7 @@ group :production do
   # database production
   gem 'pg', '~> 0.19.0'
   # precompile and prepare assets at production
-  # gem 'rails_12factor', '~> 0.0.3'
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 # gem 'lrr-basics', github: 'ribaslucian/rails-lrr-basics'

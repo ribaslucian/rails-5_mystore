@@ -1,0 +1,108 @@
+- if action_name == 'show'
+  .ui.segment.basic
+    h1
+      = resource.name
+
+.ui.divider
+
+- if !resource.is_juridic.nil?
+  - if resource.is_juridic
+    table.ui.table.very.basic.small.celled.four.column
+      thead.small-text-3
+        tr
+          th.text-center Razão Social
+          th.text-center CNPJ
+          th.text-center Reg. Municipal
+          th.text-center Reg. Estadual
+      
+      tbody
+        tr
+          td.text-center.code.grey-text=resource.corporate.corporate_name
+          td.text-center.code== "#{CNPJ.new(resource.corporate.cnpj).formatted}"
+          td.text-center.code.grey-text=resource.corporate.registration_municipal
+          td.text-center.code.grey-text=resource.corporate.registration_state
+  - else
+    table.ui.table.very.basic.small.celled
+      thead.small-text-3
+        tr
+          th.text-center CPF
+          th.text-center RG
+      
+      tbody
+        tr
+          td.text-center.grey-text.code="#{CPF.new(resource.person.cpf).formatted}"
+          td.text-center.grey-text.code=resource.person.rg
+      
+
+.ui.segment.basic
+  h3 Telefones
+  .ui.divider
+
+  table.ui.table.very.basic.small.celled.three.column
+    thead.small-text-3
+      tr
+        th.text-center Prioridade
+        th.text-center Número
+        th Descrição
+    
+    tbody
+      - if resource.phones.any?
+        - resource.phones.each do |phone|
+          tr
+            td.text-center.bold-1=phone.priority
+            td.text-center.blue-text=phone.phone
+            td.grey-text.small-text-3=phone.description
+      - else
+        tr
+          td.text-center.grey-text.small-text-3.code colspan='3' Não há registro
+
+/:
+
+.ui.segment.basic
+  h3 E-mails
+  .ui.divider
+
+  table.ui.table.very.basic.small.celled.three.column
+    thead.small-text-3
+      tr
+        th.text-center Prioridade
+        th E-mail
+        th Descrição
+    
+    tbody
+      - if resource.emails.any?
+        - resource.emails.each do |email|
+          tr
+            td.text-center.bold-1=email.priority
+            td.blue-text=email.email
+            td.grey-text.small-text-3=email.description
+      - else
+        tr
+          td.text-center.grey-text.small-text-3.code colspan='3' Não há registro
+
+/:
+
+.ui.segment.basic
+  h3 Endereços
+  .ui.divider
+
+  table.ui.table.very.basic.small.celled
+    thead.small-text-3
+      tr
+        th.text-center Prioridade
+        th 
+          | Endereço
+          br/
+          small-text-3.grey-text.ligth-1 Rua, Número, Bairro, CEP — Cidade - Estado, País
+    
+    tbody
+      - if resource.addresses.any?
+        - resource.addresses.each do |address|
+          tr
+            td.text-center.bold-1=address.priority
+            td.small-text-3.grey-text="#{address.street}, #{address.number}, #{address.neighborhood}, #{address.zipcode} — #{address.city} - #{address.state}, #{address.country}"
+            
+      - else
+        tr
+          td.text-center.grey-text.small-text-3.code colspan='3' Não há registro
+    

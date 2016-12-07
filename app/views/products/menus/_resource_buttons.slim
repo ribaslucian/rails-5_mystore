@@ -1,0 +1,13 @@
+.no-whitespace
+
+  button.ui.button.icon.tiny onclick="$('#modal_show_product_#{product.id}').modal('show')"
+    i.unhide.icon
+
+  a.ui.button.icon.tiny href=url_for(edit_product_path(product))
+    i.write.icon
+
+  button.ui.button.icon.tiny.white-text.grey-bg.darken-2 onclick="$('#modal_product_delete_#{product.id}').modal('show')"
+    i.trash.icon
+
+= render 'products/modals/show', product: product
+= render 'products/modals/alert', product: product

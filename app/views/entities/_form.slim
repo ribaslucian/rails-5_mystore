@@ -1,0 +1,91 @@
+.ui.form
+
+  = form_for @entity, html: {'data-behavior': 'modal-form'} do |form|
+  
+    - if @entity.is_juridic
+      = form.hidden_field :is_juridic, value: true, id: 'entity_is_juridic'
+    - else
+      = form.hidden_field :is_juridic, value: false, id: 'entity_is_juridic'
+    
+    .ui.grid.three.column.centered.gridstackable
+      .column
+        .ui.segment.basic
+          - if action_name == 'edit'
+            .field.disabled
+              = form.label :name, 'Nome:'
+              = form.text_field :name, placeholder: 'Nome Completo', readonly: true
+              .small-text-3.text-center Devido a integridade das relações, não é possível alterar este dado.
+
+          - else
+            .field
+              = form.text_field :name, placeholder: 'Nome Completo'
+              = field_message @entity, :name
+
+          #autonomous-fields.ui.grid style=('display: none;' if @entity.is_juridic)
+            .column.six.wide.center.aligned
+              br/
+              .ui.basic.label.blue Autônomo
+              br/
+              br/
+              .ui.label.none-bg.pointer onclick="hide_show('#autonomous-fields', '#corporate-fields'); $('#entity_is_juridic').val(true);" Empresa
+
+            #autonomous-fields.column.ten.wide
+              = form.fields_for :person do |person|
+                = render partial: 'people/form_fields', locals: {resource: @entity, form: person}
+              
+          #corporate-fields.ui.grid style=('display: none;' if !@entity.is_juridic)
+            .column.six.wide.center.aligned
+              br/
+              .ui.label.none-bg.pointer onclick="hide_show('#corporate-fields', '#autonomous-fields'); $('#entity_is_juridic').val(false);" Autônomo
+              br/
+              br/
+              .ui.basic.label.blue Empresa
+            
+            .column.ten.wide.center.aligned
+              = form.fields_for :corporate do |corporate|
+                = render partial: 'corporates/form_fields', locals: {resource: @entity, form: corporate}
+
+    .ui.grid.three.column.stackable
+      .column
+        .ui.segment.basic.white-bg
+          h3.ui.dividing.header.text-center Endereços
+
+          #addresses.ui.segment.basic
+            - if (action_name == 'edit')
+              = form.fields_for :addresses do |address|
+                = render 'address_fields', f: address
+
+            .links.small-text-2.bold-1.center
+              = link_to_add_association '<i class="plus icon none-bg"></i> Adicionar Endereço'.html_safe, form, :addresses, class: 'ui button tiny labeled icon center-block none-bg'
+
+      .column
+        .ui.segment.basic.white-bg
+          h3.ui.dividing.header.text-center E-mails
+
+          #emails.ui.segment.basic
+            - if (action_name == 'edit')
+              = form.fields_for :emails do |email|
+                = render 'email_fields', f: email
+
+            .links.small-text-2.bold-1.center
+              = link_to_add_association '<i class="plus icon none-bg"></i> Adicionar E-mail'.html_safe, form, :emails, class: 'ui button tiny labeled icon center-block none-bg'
+
+      .column
+        .ui.segment.basic.white-bg
+          h3.ui.dividing.header.text-center Telefones
+
+          #phones.ui.segment.basic
+            - if (action_name == 'edit')
+              = form.fields_for :phones do |phone|
+                = render 'phone_fields', f: phone
+
+            .links.small-text-2.bold-1.center
+              = link_to_add_association '<i class="plus icon none-bg"></i> Adicionar Telefone'.html_safe, form, :phones, class: 'ui button tiny labeled icon center-block none-bg'
+
+    br/
+    .ui.divider
+    
+    .ui.segment.basic.right.aligned
+      button.ui.button.blue.large Salvar
+    
+      = link_to 'Cancelar'.html_safe, entities_path, class: 'ui button large'

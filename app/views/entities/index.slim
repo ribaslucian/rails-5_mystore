@@ -1,0 +1,49 @@
+.ui.segment.container.basic
+  - if Entity.count > 0
+
+    .ui.three.column.grid.stackable
+      .column
+        h1.ui.header.dividing.segment.basic.no.padding-top Integrantes
+
+      .column
+        / render smart listing controls form
+        = smart_listing_controls_for :entities do
+
+          / Add search box to form - it submits the form automatically on text change
+          #search_input.ui.right.left.icon.input.fluid
+            i.search.icon
+            = text_field_tag :filter, '', class: 'prompt search form-control', placeholder: 'Busca por Nome ou Documento', autocomplete: :off
+
+      .column
+        a.ui.button.primary.icon.pull-right href=url_for(new_entity_path) style='margin-left: 10px;' 
+          i.icon.add
+
+        .dropdown
+          .title.ui.icon.button.basic.icon
+            i.icon.ellipsis.vertical
+
+          .menu.center.bottom.horizontal
+            a.item.icon href=url_for(entities_path) 
+              i.material-icons &#xE5D2;
+              | Mostrar Todos
+
+            a.item.icon href=url_for(entities_path(is_juridic: 'false'))
+              i.material-icons &#xE7FF;
+              | Mostrar Pessoas
+
+            a.item.icon href=url_for(entities_path(is_juridic: 'true'))
+              i.material-icons &#xE84F;
+              | Mostrar Empresas
+
+            a.item.icon href=url_for(entities_path(is_juridic: 'null'))
+              i.material-icons &#xE8FD;
+              | Mostrar Indefinidos
+
+    = smart_listing_render :entities
+
+  - else
+    h2.text-center.ligth-4.grey-text style='margin-top: 15%;'
+      | Não há 
+      b Integrante
+      |  registrado
+    = link_to 'Adicionar', new_entity_path, class: 'centered blue-text'

@@ -1,0 +1,20 @@
+table.ui.table.compact.very.basic
+  thead.small-text-3
+    tr.center.aligned
+      th Código
+      th Nome
+      th Preço
+      th Estoque
+      th Categoria
+      th Descrição
+
+  tbody
+    tr
+      td.grey-text= product.code
+      td.bold-1.large-text-1= product.name
+      td.text-center.grey-text= product.price
+      td.text-center.grey-text= product.stock
+      td.text-center.grey-text
+        - product.categories.each do |c|
+          = c.name
+      td.text-center.grey-text= product.description

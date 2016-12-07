@@ -1,0 +1,52 @@
+- if Product.count > 0
+
+  br/
+  br/
+
+  .ui.label.brown-bg.lighten-4 Arte
+  .ui.tag.label.brown-bg.lighten-4 Filtros
+  .ui.tag.label.brown-bg.lighten-4 3 Centros
+  
+  br/
+  br/
+  
+  .ui.padded.equal.height.four.column.grid
+
+    - Product.all.each do |product|
+
+      .column.stretched
+        .ui.segment.basic.white-bg.no.padding-bottom
+
+          .thumb.carousel
+            - product.images.each do |image|
+              = image_tag image.avatar.url(:medium), class: 'ui image fluid', style: 'height: 150px;'
+
+          .ui.segment.basic.thumb.no.padding-top
+            .h4.text-center.no.margin-top
+              = product.name
+                      
+            .ui.divider
+            
+            .ui.two.column.grid
+              .column title='Unidades disponíveis / Vendidas'
+                .ui.label.white-bg.large.no-whitespace
+                  span.small-text-5.grey-text.relative.ligth-1
+                    | 10 Vendidos
+                      
+              .column
+                .ui.label.white-bg.large.no-whitespace.pull-right
+                  = number_to_currency product.price, separator: ',', delimiter: '.', unit: '<span class="small-text-5">R$</span> '.html_safe
+
+            .ui.divider
+            
+            .ui.button.mini.white-bg Detalhes
+            .ui.button.mini.green.pull-right Comprar
+                    
+            /.ui.label.no.bg style='position: absolute; top: -13px; left: -15px; z-index: 99; width: 40px;'
+              i.material-icons &#xE5D4;
+
+- else
+  .small-text-3.grey-text Nenhum registro encontrado
+
+br/
+br/

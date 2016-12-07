@@ -1,0 +1,14 @@
+body { margin-top: 10px; }
+
+/* columns equal heigth */
+.ui.grid { height: 100%;}
+html, body { height: 100%; }
+
+/* adpts: flash msg */
+#toast-container { margin-top: 5% !important; }
+
+/* adpts: semantic-ui */
+.item.inverted:hover { color: #333 !important; }
+.ui.sticky { margin-top: 47px !important; background-color: white; }
+.index_entity { padding-top: 10px; }
+.material-icons { font-family: 'Material Icons' !important; }

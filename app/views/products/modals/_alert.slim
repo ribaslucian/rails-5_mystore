@@ -1,0 +1,18 @@
+.ui.basic.modal id="modal_product_delete_#{product.id}"
+
+  i.close.icon
+  .header
+    h4 Remover Produto
+    h2
+      = product.name
+
+  .image.content
+    .image
+      i.archive.icon
+    .description
+      p Após remover este registro não será possível voltar atrás, tem certeza disto ?
+
+  .actions
+    = link_to '<i class="remove icon"></i> Remover Agora'.html_safe, product, method: :delete, class: 'ui red basic inverted button __delete_product'
+    .ui.ok.inverted.green.button.rigth
+      | Cancelar

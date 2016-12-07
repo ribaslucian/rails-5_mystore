@@ -1,0 +1,49 @@
+- unless smart_listing.empty?
+
+  .ui.divider
+  br/
+  
+  table.ui.very.basic.table.large.selectable
+    thead
+      tr.small-text-5
+        th.text-center TIPO
+        th NOME
+        th DOCUMENTAÇÃO
+        th
+    tbody
+      - smart_listing.collection.each do |entity|
+        tr
+          td 
+            - if entity.is_juridic.nil?
+              .ui.label.center-block.mini.grey-text.white-bg Indefinido
+            - else
+              - if entity.is_juridic
+                .ui.label.mini.center-block.blue Empresa
+              - else
+                .ui.label.mini.center-block.brown Autônomo
+
+          td.large-text-3= entity.name
+          
+          td.code.small-text-3.grey-text
+            - if !entity.is_juridic.nil?
+              - if entity.is_juridic
+                = "CNPJ #{CNPJ.new(entity.corporate.cnpj).formatted}"
+              - else
+                = "CPF #{CPF.new(entity.person.cpf).formatted}"
+
+          td
+            .center-block= render partial: 'entities/menus/resource_buttons', locals: {resource: entity}
+
+  .ui.divider
+
+  / pagination linkst
+  - @@count = smart_listing.collection.total_count
+  = smart_listing.paginate
+
+- else
+  .small-text-3.grey-text Nenhum registro encontrado
+  
+javascript:
+  $('.__action_buttons_dimmer').dimmer({on: 'hover'});
+  $('#search_input').removeClass('loading');
+  loader_hide();

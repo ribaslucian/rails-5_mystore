@@ -1,0 +1,29 @@
+.nested-fields.ui.tiny.form
+
+  .two.fields
+    .field
+      = form.label :priority, 'Prioridade:'
+      = form.text_field :priority, placeholder: "1 - 99", value: '1'
+      = field_message resource, :'entity.addresses.priority'
+
+    .field
+      = form.label :type, 'Tipo:'
+      = form.text_field :type, placeholder: "Residencial | Apartamento", value: 'Residencial'
+
+  .two.fields
+    .field
+      = form.label :zipcode, 'CEP:'
+      = form.number_field :zipcode, placeholder: "Apenas números"
+
+    .field
+      = form.label :number, 'Número:'
+      = form.number_field :number
+
+  .field
+    = form.label :complement, value: 'Complemento:'
+    = form.text_field :complement, placeholder: 'Número do bloco/apartamento; Pontos de referência...'
+    
+  = link_to_remove_association '<i class="icon minus no margin"></i>'.html_safe, form, class: 'ui button yellow tiny icon'
+
+  br/
+  .ui.divider

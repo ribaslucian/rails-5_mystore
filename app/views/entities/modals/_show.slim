@@ -1,0 +1,9 @@
+.ui.modal id="modal_show_#{resource.id}"
+  .header 
+    h1= resource.name
+
+  .content
+    = render 'entities/show', resource: resource
+   
+  .actions
+    .ui.cancel.button.green Ok

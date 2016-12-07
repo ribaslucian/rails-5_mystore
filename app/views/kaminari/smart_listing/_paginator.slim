@@ -1,0 +1,49 @@
+/ The container tag
+/   available local variables
+/   current_page:  a page object for the currntly displayed page
+/   total_pages:   total number of pages
+/   per_page:      number of items to fetch per page
+/   remote:        data-remote
+/   paginator:     the paginator that renders the pagination tags inside
+
+= paginator.render do
+
+  - if total_pages > 1
+  
+    .ui.grid.three.column.stackable
+      .column.right.floated.right.aligned
+
+        .ui.form.paginate.segment.basic paginate-total=total_pages paginate-current=current_page.to_s paginate-url="#{url_for(params.merge(:"#{controller.controller_name}_smart_listing[page]" => '_page_'))}"
+
+          .field.inline
+
+            / botão para página anterior
+            - unless current_page.first?
+              == prev_page_tag
+            - else
+              a.ui.button.icon.relative.disabled style='right: -8px;'
+                i.icon.arrow.left
+
+            input.text-center.relative type='text' placeholder='Página' data-content='Informa a página que deseja ir e pressione <Enter>' data-variation='tiny' value=current_page.to_i style='width: 70px; padding-top: 8px; top: -2px;'/
+            a.hide_button_submit_input data-remote='true'
+
+            / botão para próxima página
+            - unless current_page.last?
+              == next_page_tag
+            - else
+              a.ui.button.icon.relative.disabled style='left: 5px;'
+                i.icon.arrow.right
+
+          .text-right.small-text-3.relative
+            .orange-text.current_page_message.hide Está é a página atual.
+            .red-text.invalid_page_message.hide Página invalida.
+            .blue-text.ok_message.hide Buscando...
+
+          .small-text-5.grey-text.relative style='margin-bottom: 5px; right: -5px;'
+            = "#{current_page.to_s}º pág. de #{total_pages} — #{@@count} Ocorrências"
+
+    / .ui.active.inverted.dimmer.hide._load_records
+    /   .ui.text.loader.small
+
+br/
+br/

@@ -1,0 +1,29 @@
+.no-whitespace
+
+  .dropdown
+    .title.ui.icon.button.basic.icon
+      i.icon.ellipsis.vertical
+
+    .menu.center.top.horizontal
+      .item.icon.small-text-3 onclick=("$('#modal_delete_#{resource.id}').modal('show');")
+        i.material-icons &#xE872;
+        | Remover &nbsp;
+        .ui.label.red.tiny.horizontal.left.pointing Atenção
+      a.item.icon.small-text-3 href=url_for(edit_entity_path(resource))
+        i.material-icons &#xE254;
+        | Editar
+      .item.icon.small-text-3 onclick=("$('#modal_show_#{resource.id}').modal('show')")
+        i.material-icons &#xE8F4;
+        | Visualizar
+
+/   button.ui.button.icon.tiny onclick=("$('#modal_show_#{resource.id}').modal('show')")
+/     i.unhide.icon
+/ 
+/   a.ui.button.icon.tiny href=url_for(edit_entity_path(resource))
+/     i.write.icon
+/ 
+/   button.ui.button.icon.tiny.white-text.grey-bg.darken-2 onclick=("$('#modal_delete_#{resource.id}').modal('show');")
+/     i.trash.icon
+
+= render 'entities/modals/show', resource: resource
+= render 'entities/modals/alert', resource: resource

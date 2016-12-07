@@ -1,0 +1,18 @@
+.ui.basic.modal id="modal_delete_#{resource.id}"
+  i.close.icon
+  
+  .header
+    h4 Remover
+    h2
+      = resource.name
+  
+  .image.content
+    .image
+      i.archive.icon
+    .description
+      p Tem certeza que deseja remover este registro ? Não será possível voltar atrás.
+  
+  .actions
+    = link_to '<i class="remove icon"></i> Remover Agora'.html_safe, resource, method: :delete, class: 'ui red basic inverted button _delete_person'
+    .ui.ok.inverted.green.button.rigth
+      | Cancelar

@@ -1,0 +1,24 @@
+- if Product.count > 0
+  .ui.three.column.grid.stackable
+    .column
+      h1.ui.header.dividing.segment.basic.no.padding-top Produtos
+
+    .column
+      / render smart listing controls form
+      = smart_listing_controls_for :products, class: 'pull-left' do
+
+        / Add search box to form - it submits the form automatically on text change
+        .ui.left.icon.input.filter.small
+          = text_field_tag :filter, '', class: 'prompt', placeholder: 'Nome ou Código', autocomplete: :off
+          i.search.icon
+
+      a.ui.button.primary.icon.small.pull-left href=url_for(new_product_path) style='margin-left: 10px;'
+        i.icon.add
+
+  = smart_listing_render :products
+- else
+  h2.text-center.ligth-4.grey-text style='margin-top: 15%;'
+    | Não há 
+    b Produto
+    |  registrado
+  = link_to 'Adicionar', new_product_path, class: 'centered blue-text'

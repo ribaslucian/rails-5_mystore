@@ -1,0 +1,6 @@
+- message = resource.errors.full_messages_for(field).first
+
+- if (!message.nil?)
+	.input-message.red-text.bold.small-text-3
+		i.material-icons.inline.red-text &#xE000;
+		= message

@@ -1,0 +1,41 @@
+.ui.three.stackable.column.center.aligned.grid
+  .column.six.wide.form-holder
+    .ui.segment.basic.white-bg.very.padded.no.padding-bottom
+      h3.center.aligned.header.form-head IDENTIFIQUE-SE
+
+      br/
+      .small-text-3.grey-text
+        | Para continuar precisamos da sua identificação.
+
+      .ui.divider
+
+      = link_to 'Entrar com Facebook', '/auth/facebook', class: 'ui button white-text blue-bg darken-1'
+
+      .ui.divider
+
+      br/
+
+      = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui form'} do |f|
+        .field
+          = f.email_field :email, placeholder: 'E-mail', autofocus: true
+        .field
+          = f.password_field :password, placeholder: 'Senha', autocomplete: 'off'
+        .field
+          = f.submit 'Entrar', class: 'ui button large fluid white-text green-bg lighten-1'
+
+      br/
+
+      .ui.segment.basic.right.aligned.no.padding-right.padding-bottom.margin-top
+        .ui.label.white-bg.grey-text.small-text-3.ligth-1
+          | Ainda não é usuário ?
+
+        = link_to 'Cadastre-se', new_registration_path(resource), class: 'ui primary basic button inline'
+
+      br/
+
+    .ui.segment.basic.left.aligned.no.padding-top
+      .dropdown
+        .title.grey-text.small-text-4.ligth-1 Preciso de Ajuda
+        .menu.center.top.horizontal
+          = link_to 'Esqueci Minha Senha', new_password_path(resource), class: 'item small-text-3'
+          = link_to 'Não Recebi o Email de Confirmação', new_confirmation_path(resource), class: 'item small-text-3'

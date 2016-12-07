@@ -1,0 +1,37 @@
+.ui.borderless.menu.inverted.fixed.top.massive style='padding: 0 9%;'
+  .menu.left
+    #menu_primary.item.pointer.no.padding
+      .ui.label.black.no.margin.huge
+        i.icon.ellipsis.vertical.center-block
+
+  .menu.right
+    - if user_signed_in?
+      .item
+        img.ui.circular.image.mini.absolute src=current_user.socialpage_photo_url style='top: 11px; left: -16px;'
+        a.ui.label.teal href=logout_path
+          = current_user.name.nil? ? current_user.email : current_user.name
+
+#menu_primary_content.ui.flowing.popup.top.left.transition.hidden
+  .ui.three.column.relaxed.equal.height.grid
+    .column
+      h5 CADASTRO
+      .ui.link.list
+        = link_to 'Integrantes', entities_path, class: 'item inverted'
+        / link_to 'Pessoas', people_path, class: 'item inverted'
+        / link_to 'Empresas', corporates_path, class: 'item inverted'
+        = link_to 'Usuários', '#!', class: 'item inverted'
+
+    .column
+      h5 LOJA
+      .ui.link.list
+        = link_to 'Produtos', products_path, class: 'item inverted'
+        = link_to 'Categorias', categories_path, class: 'item inverted'
+
+    .column
+      h5 SITE
+      .ui.link.list
+        = link_to 'Loja', site_products_path, class: 'item inverted'
+
+javascript:
+  $('#menu_primary').popup({popup: '#menu_primary_content', position: 'bottom left', hoverable: true});
+  

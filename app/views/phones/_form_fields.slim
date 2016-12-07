@@ -1,0 +1,19 @@
+.nested-fields.ui.tiny.form
+  
+  .two.fields
+    .field
+      = form.label :priority, 'Prioridade:', class: 'active'
+      = form.number_field :priority, placeholder: '0-99'
+
+    .field
+      = form.label :phone, 'Telefone:', class: 'active'
+      = form.text_field :phone, placeholder: '+55 (42) 1234-5678'
+
+  .field
+    = form.label :description, 'Observações:', class: 'active'
+    = form.text_area :description, placeholder: 'E-mail pessoal / comercial / de usuário'
+
+  = link_to_remove_association '<i class="icon minus no margin"></i>'.html_safe, form, class: 'ui button yellow tiny icon'
+
+  br/
+  .ui.divider

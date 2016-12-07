@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BT">
+
+<head>
+  <title>Mystore</title>
+
+  <!--Incluimos HTML5 em navegadores antigos-->
+  <!--[if lt IE 9]
+    script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'/
+  -->
+
+  <!--codificação da página-->
+  <meta charset="UTF-8" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+  <!--informações básicas-->
+  <meta content="Layout ADMIN de uma página HTML desenvolvida com o framework Ruby On Rails" name="description" />
+  <meta content="Lucian Rossoni Ribas" name="author" />
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+</head>
+
+<body class="no padding margin" style="background: #f6f6f6; padding-top: 51px !important;">
+  <%= layouts 'flashes/toastr' %>
+  <%= layouts 'menus/default' if user_signed_in? %>
+
+  <div class="ui segment basic very padded no margin-top">
+    <%= yield %>
+  </div>
+
+  <div class="ui active inverted dimmer fixed _page-loader">
+    <div class="ui small text loader">
+    </div>
+  </div>
+</body>
+
+</html>

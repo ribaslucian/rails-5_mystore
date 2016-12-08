@@ -11,39 +11,38 @@
   - if total_pages > 1
   
     .ui.grid.three.column.stackable
-      .column.right.floated.right.aligned
+      .column.right.floated
+        #paginate.ui.segment.basic total=total_pages current=current_page.to_s url="#{url_for(params.merge(:"#{controller.controller_name}_smart_listing[page]" => '_page_'))}"
+          div.pull-right
+            .ui.action.input
 
-        .ui.form.paginate.segment.basic paginate-total=total_pages paginate-current=current_page.to_s paginate-url="#{url_for(params.merge(:"#{controller.controller_name}_smart_listing[page]" => '_page_'))}"
+              / botão para pagina anterior
+              - unless current_page.first?
+                == prev_page_tag
+              - else
+                a.ui.button.icon.relative.disabled style='border-radius: 4px 0px 0px 4px;'
+                  i.icon.arrow.left
+              
+              input.text-center placeholder='Página' type='text' data-content='Informa a página que deseja ir e pressione <Enter>' data-variation='tiny' value=current_page.to_i style='border-left: 0px; border-radius: 0px 4px 4px 0px; width: 100px' /
+              a#hide_submit data-remote='true'
+              
+              / botão para próxima pagina
+              - unless current_page.last?
+                == next_page_tag
+              - else
+                a.ui.button.icon.disabled
+                  i.icon.arrow.right
+    
+            / mensagens de erros na paginacao
+            .ui.segment.basic.center-block.small-text-3.text-center
+              #messages
+                #current.hide.bold-1.orange-text Está é a página atual.
+                #invalid.hide.bold-1.red-text Página invalida.
+                #ok.hide.bold-1.blue-text Buscando...
+              
+              .grey-text
+                = "Pág. #{current_page.to_s}/#{total_pages} — #{@@count} Ocorrências"
 
-          .field.inline
-
-            / botão para página anterior
-            - unless current_page.first?
-              == prev_page_tag
-            - else
-              a.ui.button.icon.relative.disabled style='right: -8px;'
-                i.icon.arrow.left
-
-            input.text-center.relative type='text' placeholder='Página' data-content='Informa a página que deseja ir e pressione <Enter>' data-variation='tiny' value=current_page.to_i style='width: 70px; padding-top: 8px; top: -2px;'/
-            a.hide_button_submit_input data-remote='true'
-
-            / botão para próxima página
-            - unless current_page.last?
-              == next_page_tag
-            - else
-              a.ui.button.icon.relative.disabled style='left: 5px;'
-                i.icon.arrow.right
-
-          .text-right.small-text-3.relative
-            .orange-text.current_page_message.hide Está é a página atual.
-            .red-text.invalid_page_message.hide Página invalida.
-            .blue-text.ok_message.hide Buscando...
-
-          .small-text-5.grey-text.relative style='margin-bottom: 5px; right: -5px;'
-            = "#{current_page.to_s}º pág. de #{total_pages} — #{@@count} Ocorrências"
-
-    / .ui.active.inverted.dimmer.hide._load_records
-    /   .ui.text.loader.small
 
 br/
 br/

@@ -9,5 +9,5 @@ class Entity < Model
   accepts_nested_attributes_for :person, :corporate, :user, :addresses, :emails,
                                 :phones, allow_destroy: true
 
-  default_scope { order('name DESC') }
+  # default_scope { order('name') }
 end

@@ -16,7 +16,7 @@ class EntitiesController < ApplicationController
     entities_scope = Entity.includes(
       :person, :corporate,
       :emails, :phones, :addresses
-    ).where(person_type_sql).all
+    ).where(person_type_sql).order('name').all
 
     # Apply the search control filter.
     # Note: `like` method here is not built-in Rails scope. You need to define it by yourself.

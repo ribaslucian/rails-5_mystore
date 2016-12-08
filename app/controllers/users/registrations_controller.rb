@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     auth = request.env['omniauth.auth']
     user = User.find_or_create_with_omniauth auth
     sign_in 'user', user
-    redirect_to after_sign_in_path_for(user)
+    redirect_to entities_path
   end
 
   # POST /resource

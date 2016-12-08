@@ -1,25 +1,20 @@
-/* função básica do evento de clicar fora de um element */
+/**
+ * Função básica do evento de clicar fora de um element 
+ */
 $.fn.clickOut = function (callback, selfDestroy) {
     var clicked = false;
     var parent = this;
     var destroy = selfDestroy || true;
 
     parent.click(function () {
-        clicked = true;
+      clicked = true;
     });
 
     $(document).click(function (event) {
-        if (!clicked)
-            callback(parent, event);
+      if (!clicked)
+        callback(parent, event);
 
-        if (destroy) {
-            //parent.clickOff = function() {};
-            //parent.off("click");
-            //$(document).off("click");
-            //parent.off("clickOff");
-        }
-
-        clicked = false;
+      clicked = false;
     });
 };
 
@@ -27,19 +22,37 @@ function empty(value){
   return !$.trim(value)
 }
 
-// apresentar o loader na pag.
+/**
+ * Apresentar o loader completo da pag.
+ *
+ * @return {void}
+ */
 function loader_show() {
   // esconder o scroll da pág.
   $('body').css('overflow', 'hidden');
   $('._page-loader').show();
 }
 
-// esconder o loader na pag.
+/**
+ * Esconder o loader completo da pag.
+ *
+ * @return {void}
+ */
 function loader_hide() {
   // apresentar o scroll da pág.
   $('body').css('overflow', 'auto');
   $('._page-loader').hide();
    $("html, body").animate({ scrollTop: 0 }, "slow");
+}
+
+/**
+ * Aprensa um log no console do navegador.
+ *
+ * @param  {[type]}
+ * @return {void}
+ */
+function log(content) {
+  console.log(content);
 }
 
 function hide_me_and_show(me, element_show) {

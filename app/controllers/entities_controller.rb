@@ -14,8 +14,7 @@ class EntitiesController < ApplicationController
     end
 
     entities_scope = Entity.includes(
-      :person, :corporate,
-      :emails, :phones, :addresses
+      :person, :corporate
     ).where(person_type_sql).order('name').all
 
     # Apply the search control filter.

@@ -16,14 +16,5 @@
         i.material-icons &#xE8F4;
         | Visualizar
 
-/   button.ui.button.icon.tiny onclick=("$('#modal_show_#{resource.id}').modal('show')")
-/     i.unhide.icon
-/ 
-/   a.ui.button.icon.tiny href=url_for(edit_entity_path(resource))
-/     i.write.icon
-/ 
-/   button.ui.button.icon.tiny.white-text.grey-bg.darken-2 onclick=("$('#modal_delete_#{resource.id}').modal('show');")
-/     i.trash.icon
-
-= render 'entities/modals/show', resource: resource
-= render 'entities/modals/alert', resource: resource
+/ render 'entities/modals/show', resource: resource
+/ render 'entities/modals/alert', resource: resource

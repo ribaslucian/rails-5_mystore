@@ -9,7 +9,7 @@
 require 'faker'
 
 # recriamos o banco de dados
-Rake::Task['db:migrate:reset'].invoke
+# Rake::Task['db:migrate:reset'].invoke
 
 10.times {
   Person.create({

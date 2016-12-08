@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20161027152825) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "id_ns",        limit: 64,                                      null: false
+    t.string   "id_ns",        limit: 64,              null: false
     t.integer  "entity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "priority",     limit: 2,                           default: 1, null: false
+    t.integer  "priority",     limit: 2,   default: 1, null: false
     t.string   "type",         limit: 32
     t.string   "zipcode",      limit: 14
     t.string   "street",       limit: 124
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20161027152825) do
     t.string   "city",         limit: 64
     t.string   "state",        limit: 64
     t.string   "country",      limit: 64
-    t.decimal  "latitude",                 precision: 3, scale: 6
-    t.decimal  "longitude",                precision: 3, scale: 6
     t.index ["entity_id"], name: "index_addresses_on_entity_id"
     t.index ["id_ns"], name: "index_addresses_on_id_ns"
   end

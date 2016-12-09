@@ -20,8 +20,7 @@
 //= require smart_listing
 //
 //= require_tree .
-//
 
 $(document).ready(function() {
-  //
+  // ...
 });

@@ -10,9 +10,9 @@
         = smart_listing_controls_for :entities do
 
           / Add search box to form - it submits the form automatically on text change
-          #search_input.ui.right.left.icon.input.fluid
+          #search_input.ui.icon.input.fluid
+            = text_field_tag :filter, '', class: 'prompt search form-control', placeholder: 'Busca por Nome ou Documento', autocomplete: :off, "data-content": 'Pressione <Enter> para aplicar a pesquisa.', "data-variation": 'tiny'
             i.search.icon
-            = text_field_tag :filter, '', class: 'prompt search form-control', placeholder: 'Busca por Nome ou Documento', autocomplete: :off
 
       .column
         a.ui.button.primary.icon.pull-right href=url_for(new_entity_path) style='margin-left: 10px;' 

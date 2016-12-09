@@ -6,9 +6,9 @@
   table.ui.very.basic.table.large.selectable
     thead
       tr.small-text-5
-        th.text-center TIPO
-        th NOME
-        th DOCUMENTAÇÃO
+        th.text-center= smart_listing.sortable ' TIPO', 'is_juridic'
+        th= smart_listing.sortable 'NOME', 'name'
+        th
         th
     tbody
       - smart_listing.collection.each do |entity|

@@ -9,9 +9,9 @@
         / render smart listing controls form
         = smart_listing_controls_for :entities do
 
-          / Add search box to form - it submits the form automatically on text change
+          / add filter class to submit on text edit
           #search_input.ui.icon.input.fluid
-            = text_field_tag :filter, '', class: 'prompt search form-control', placeholder: 'Busca por Nome ou Documento', autocomplete: :off, "data-content": 'Pressione <Enter> para aplicar a pesquisa.', "data-variation": 'tiny'
+            = text_field_tag :filter, '', class: 'prompt search', placeholder: 'Busca por Nome ou Documento', autocomplete: :off, "data-content": 'Pressione <Enter> para aplicar a pesquisa.', "data-variation": 'tiny'
             i.search.icon
 
       .column

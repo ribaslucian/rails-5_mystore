@@ -14,11 +14,12 @@
         i.material-icons &#xE254;
         | Editar
         
-      / = link_to '<i class="material-icons">&#xE8F4;</i> Visualizar'.html_safe, entity_path(resource), remote: true, id: 'modal_show', class: 'item icon small-text-3', 'data-type': 'html'
-
-      .item.icon.small-text-3 onclick=("$('#modal_show_#{resource.id}').modal('show')")
+      .item.icon.small-text-3 data-id=resource.id data-function='remote:model:call' data-url=url_for(resource)
         i.material-icons &#xE8F4;
         | Visualizar
+        
+      / .item.icon.small-text-3 onclick=("$('#modal_show_#{resource.id}').modal('show')")
+      /   i.material-icons &#xE8F4;
+      /   | Visualizar
 
-/ = render 'entities/modals/show', resource: resource
-/ = render 'entities/modals/alert', resource: resource
+= render 'entities/modals/alert', resource: resource

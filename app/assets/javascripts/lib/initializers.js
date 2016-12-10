@@ -1,16 +1,14 @@
 $(document).ready(function() {
   // semantic-ui initializers
   $('.ui.dropdown').dropdown();
-  $('.ui.modal').modal({blurring: true});
-  // $('.popup1').popup({popup: '.popup2', position: 'bottom left', hoverable: true});
+  // $('.ui.modal').modal({blurring: true});
   $('.ui.sticky').sticky();
   $('[data-tooltip]').popup();
   $('input[data-content]').popup({on: 'focus'});
-  // semantic-ui: resumindo utilização do popup {data-inverted}
+  // resumindo utilização do popup {data-inverted}
   $.each($('[data-inverted]'), function(e, k) { $(this).attr('data-tooltip', $(this).attr('data-inverted')) });
-  // $('.ui.search.dropdown').dropdown();
 
-  // init images carousel
+  // carousel de imagens
   $('.thumb.carousel').owlCarousel({
     singleItem: true,
     navigation: false

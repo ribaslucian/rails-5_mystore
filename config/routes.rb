@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/index'
+
   namespace :site do
     resources :products
   end

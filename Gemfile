@@ -14,7 +14,7 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -49,7 +49,8 @@ gem 'toastr_rails', '~> 2.1', '>= 2.1.1'
 # google material design icons
 gem 'material_icons', '~> 2.2'
 # framework front-end
-gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.4.0'
+# gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.4.0'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 # mask form inputs
 # gem 'maskedinput-rails', '~> 1.4'
 # carousel images
@@ -89,7 +90,7 @@ group :development do
   # development basic server
   gem 'thin'
   # rails application console
-  gem 'pry-rails', github: 'rweng/pry-rails'
+  gem 'pry-rails', '~> 0.3.4'
   # generate image object relational
   gem 'rails-erd', '~> 1.5'
   # for print

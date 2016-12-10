@@ -9,12 +9,16 @@
         i.material-icons &#xE872;
         | Remover &nbsp;
         .ui.label.red.tiny.horizontal.left.pointing Atenção
+
       a.item.icon.small-text-3 href=url_for(edit_entity_path(resource))
         i.material-icons &#xE254;
         | Editar
+        
+      / = link_to '<i class="material-icons">&#xE8F4;</i> Visualizar'.html_safe, entity_path(resource), remote: true, id: 'modal_show', class: 'item icon small-text-3', 'data-type': 'html'
+
       .item.icon.small-text-3 onclick=("$('#modal_show_#{resource.id}').modal('show')")
         i.material-icons &#xE8F4;
         | Visualizar
 
-/ render 'entities/modals/show', resource: resource
-/ render 'entities/modals/alert', resource: resource
+/ = render 'entities/modals/show', resource: resource
+/ = render 'entities/modals/alert', resource: resource

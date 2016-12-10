@@ -3,7 +3,11 @@
     h1= resource.name
 
   .content
-    = render 'entities/show', resource: resource
+    .ui.segment.basic.very.padded
+      .ui.active.dimmer.inverted
+        .ui.loader
+
+    / render 'entities/show', resource: resource
    
   .actions
     .ui.cancel.button.green Ok

@@ -1,5 +1,5 @@
 /**
- * Função básica do evento de clicar fora de um element 
+ * Função básica do evento de clicar fora de um element
  */
 $.fn.clickOut = function (callback, selfDestroy) {
     var clicked = false;
@@ -42,7 +42,7 @@ function loader_hide() {
   // apresentar o scroll da pág.
   $('body').css('overflow', 'auto');
   $('._page-loader').hide();
-   $("html, body").animate({ scrollTop: 0 }, "slow");
+  $('html, body').animate({ scrollTop: 0 }, 'fast');
 }
 
 /**

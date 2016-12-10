@@ -1,4 +1,5 @@
 class EntitiesController < ApplicationController
+
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
   # GET /entities
@@ -31,6 +32,8 @@ class EntitiesController < ApplicationController
   # GET /entities/1
   # GET /entities/1.json
   def show
+    # se for requisicao ajax vamos utilizar o layout modal
+    render layout: 'modal'
   end
 
   # GET /entities/new

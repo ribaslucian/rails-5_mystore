@@ -5,7 +5,7 @@ $(document).ready(function() {
     loader_show();
   });
 
-  //  apresentar 'loading' nos registros quando clicar pra trocar de pág.
+  //  apresentar 'loading' nos registros quando pressionar enter na pesquisa
   $('body').on('keyup', '#search_input', function(e) {
     if (e.which == 13)
       $('#search_input').addClass('loading');

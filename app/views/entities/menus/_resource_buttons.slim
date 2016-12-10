@@ -1,6 +1,6 @@
 .no-whitespace
 
-  .dropdown.ola
+  .dropdown
     .title.ui.icon.button.basic.icon
       i.icon.ellipsis.vertical
 
@@ -13,13 +13,14 @@
       a.item.icon.small-text-3 href=url_for(edit_entity_path(resource))
         i.material-icons &#xE254;
         | Editar
-        
+      
       .item.icon.small-text-3 data-id=resource.id data-function='remote:model:call' data-url=url_for(resource)
         i.material-icons &#xE8F4;
         | Visualizar
-        
-      / .item.icon.small-text-3 onclick=("$('#modal_show_#{resource.id}').modal('show')")
-      /   i.material-icons &#xE8F4;
-      /   | Visualizar
+      
+      .item.icon.small-text-3.hide data-id=resource.id data-function='loader'
+        i.material-icons &#xE8F4;
+        | Visualizar
+        .ui.active.inline.tiny.pull-right.loader
 
 = render 'entities/modals/alert', resource: resource

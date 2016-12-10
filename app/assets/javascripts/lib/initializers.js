@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   // semantic-ui initializers
   $('.ui.dropdown').dropdown();
   // $('.ui.modal').modal({blurring: true});

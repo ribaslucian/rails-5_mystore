@@ -1,48 +1,50 @@
-= form_for(product) do |f|
+.ui.three.column.grid.stackable.centered
 
-  .filed
-    = f.label :code
-    = f.text_field :code
+  .column
 
-  .filed
-    = f.label :name
-    = f.text_field :name
+    = form_for @product, html: {class: 'ui form large'} do |f|
 
-  .filed
-    = f.label :weight
-    = f.text_field :weight
-
-  .filed
-    = f.label :price
-    = f.text_field :price
-
-  .filed
-    = f.label :stock
-    = f.number_field :stock
-
-  .field
-    = f.label :description
-    = f.text_area :description, class: 'table-editor'
-    
-  h3.ui.dividing.header Categorias
-
-  .field
-    = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b|
       .field
-        .ui.checkbox
-          = b.check_box
-          = b.label
+        .ui.left.icon.input
+          = f.text_field :code, placeholder: 'Código'
+          i.barcode.icon
 
-  h3.ui.dividing.header Images
+      .field
+        = f.text_field :name, placeholder: 'Nome'
 
-  #images.ui.segment.basic
-    - if (action_name == "edit")
-      = f.fields_for :images do |a|
-        = render 'image_fields', f: a
+      .field
+        .ui.left.icon.input
+          = f.text_field :price, placeholder: 'Preço'
+          i.money.icon
 
-    .links.small-text-2.bold-1.center
-      = link_to_add_association '<i class="plus icon"></i> Imagem'.html_safe, f, :images, class: 'ui button tiny labeled icon'
+      .field
+        = f.select :category_ids, Category.all.select(:id, :name).collect { |c| [ c.name, c.id ] }, {include_blank: 'Categorias...'}, {required: 'true', class: 'ui dropdown', multiple: ''}
 
+      .two.fields
+        .field
+          .ui.left.icon.input
+            = f.text_field :weight, placeholder: 'Peso'
+            i.law.icon
 
-  .actions
-    = f.submit
+        .field
+          .ui.left.icon.input
+            = f.number_field :stock, placeholder: 'Estoque'
+            i.cubes.icon
+
+      .field
+        = f.text_area :description, placeholder: 'Descrição'
+
+      h3.ui.dividing.header Images
+
+      #images.ui.segment.basic
+        - if (action_name == "edit")
+          = f.fields_for :images do |a|
+            = render 'image_fields', f: a
+
+        .links.small-text-2.bold-1.center
+          = link_to_add_association '<i class="plus icon"></i> Imagem'.html_safe, f, :images, class: 'ui button tiny labeled icon'
+
+      .ui.segment.basic.right.aligned
+        button.ui.button.blue.large Salvar
+      
+        = link_to 'Cancelar'.html_safe, entities_path, class: 'ui button large'

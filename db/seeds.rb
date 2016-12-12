@@ -80,9 +80,11 @@ require 'faker'
 }
 
 20.times do |i|
+  category = Faker::Book.genre;
+
   Category.create({
-    name: "Categoria #{i}",
+    name: category,
     sufix: "c#{i}",
-    description: "Descrição da categoria #{i}."
+    description: "Descrição da categoria #{category}."
   })
 end

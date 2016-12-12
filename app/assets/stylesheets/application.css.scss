@@ -10,14 +10,14 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
-*= require_self
-*
 *= require material_icons
 *= require toastr
 *= require owl.carousel
 *= require owl.theme
+*= require_tree ../../../vendor/assets/stylesheets/jquery_filter
 *
 *= require_tree .
+*= require_self
 */
 
 @import "semantic-ui";

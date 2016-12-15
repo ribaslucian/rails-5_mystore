@@ -15,11 +15,11 @@
 
       br/
 
-      = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui form'} do |f|
+      = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui form large'} do |f|
         .field
-          = f.email_field :email, placeholder: 'E-mail', autofocus: true
+          = f.email_field :email, placeholder: 'E-mail', autofocus: true, required: true
         .field
-          = f.password_field :password, placeholder: 'Senha', autocomplete: 'off'
+          = f.password_field :password, placeholder: 'Senha', autocomplete: 'off', required: true
         .field
           = f.submit 'Entrar', class: 'ui button large fluid white-text green-bg lighten-1'
 
@@ -29,13 +29,13 @@
         .ui.label.white-bg.grey-text.small-text-3.ligth-1
           | Ainda não é usuário ?
 
-        = link_to 'Cadastre-se', new_registration_path(resource), class: 'ui primary basic button inline'
+        = link_to 'Cadastre-se', new_registration_path(resource), class: 'ui inverted small violet button'
 
       br/
 
     .ui.segment.basic.left.aligned.no.padding-top
       .dropdown
-        .title.grey-text.small-text-4.ligth-1 Preciso de Ajuda
+        .title.grey-text.small-text-4.ligth-1 Precisa de ajuda ?
         .menu.center.top.horizontal
-          = link_to 'Esqueci Minha Senha', new_password_path(resource), class: 'item small-text-3'
-          = link_to 'Não Recebi o Email de Confirmação', new_confirmation_path(resource), class: 'item small-text-3'
+          = link_to 'Esqueci minha senha', new_password_path(resource), class: 'item small-text-3'
+          = link_to 'Não recebi o e-mail de confirmação', new_confirmation_path(resource), class: 'item small-text-3'

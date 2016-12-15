@@ -39,8 +39,10 @@ $(document).ready(function() {
   // elemento que não seja ou não esteja dentro de um dropdown
   // $('.dropdown').clickOut(function (e) {
   $(window).click(function(e) {
-    if (!$(e.target.className).is('.dropdown') && $('.' + e.target.className.replace(/ /g, '.')).parents('.dropdown').length <= 0)
-      $('.dropdown .menu').hide();
+    if (e.target.className != '') {
+      if (!$(e.target.className).is('.dropdown') && $('.' + e.target.className.replace(/ /g, '.')).parents('.dropdown').length <= 0)
+        $('.dropdown .menu').hide();
+    }
 
     e.stopPropagation();
   });

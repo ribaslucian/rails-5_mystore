@@ -15,8 +15,7 @@
             i.search.icon
 
       .column
-        a.ui.button.primary.icon.pull-right href=url_for(new_entity_path) style='margin-left: 10px;' 
-          i.icon.add
+        = link_to '<i class="icon add"></i>'.html_safe, new_entity_path, class: 'ui inverted purple button icon pull-right', style: 'margin-left: 10px;'
 
         .dropdown
           .title.ui.icon.button.basic.icon

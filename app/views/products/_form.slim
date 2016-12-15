@@ -1,6 +1,6 @@
 .ui.three.column.grid.stackable.centered
 
-  .column
+  .eight.wide.column
 
     = form_for @product, html: {class: 'ui form large'} do |f|
 
@@ -34,15 +34,7 @@
       .field
         = f.text_area :description, placeholder: 'Descrição'
 
-      h3.ui.dividing.header Images
-
-      #images.ui.segment.basic
-        - if (action_name == "edit")
-          = f.fields_for :images do |a|
-            = render 'image_fields', f: a
-
-        .links.small-text-2.bold-1.center
-          = link_to_add_association '<i class="plus icon"></i> Imagem'.html_safe, f, :images, class: 'ui button tiny labeled icon'
+      = render 'images/dynamic_form_fields', form: f
 
       .ui.segment.basic.right.aligned
         button.ui.button.blue.large Salvar

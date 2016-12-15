@@ -8,14 +8,10 @@ $(document).ready(function() {
     var parent = this;
     var destroy = selfDestroy || true;
 
-    parent.click(function () {
-      clicked = true;
-    });
-
+    parent.click(function () { clicked = true; });
     $(document).click(function (event) {
       if (!clicked)
       callback(parent, event);
-
       clicked = false;
     });
   };
@@ -52,6 +48,29 @@ $(document).ready(function() {
         complete: function() { remote_call_finish(t); }
       });
     }
+  });
+
+  $('body').on('click', '[data-function="nested_field_fast:image:add:trigger"]', function() {
+    $('[data-function="nested_field_fast:image:add"]').trigger('click');
+    $('[data-function="nested_field_fast:image:field"]').last().trigger('click');
+  });
+
+  $('body').on('change', '[data-function="nested_field_fast:image:field"]', function() {
+    // adicinando um novo elemento HTML
+    item = $('[data-function="nested_field_fast:image:item"]').first();
+    clone = item.clone().removeClass('hide');
+    clone.appendTo(item.parent('div'));
+
+    // definindo a imagem selecionada como fundo do elemento
+    var file = this.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+      $('img', clone).attr('src', reader.result);
+    }
+
+    if (file)
+      reader.readAsDataURL(file);
   });
 
 });

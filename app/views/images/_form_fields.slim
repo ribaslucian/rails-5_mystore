@@ -1,7 +1,7 @@
 .nested-fields.ui.tiny.form
   .field
     = f.label :avatar, 'Avatar:'
-    = f.file_field :avatar
+    = f.file_field :avatar, style: 'border: 1px solid blue;', 'data-function': 'nested_field_fast:image:field', id: 'idd'
 
   = link_to_remove_association '<i class="icon minus"></i>'.html_safe, f, class: 'ui button yellow tiny icon'
 

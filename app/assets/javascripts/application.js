@@ -18,7 +18,6 @@
 //= require toastr
 //= require cocoon
 //= require smart_listing
-//= require_tree ../../../vendor/assets/javascripts/jquery_filter
 //
 //= require_tree .
 

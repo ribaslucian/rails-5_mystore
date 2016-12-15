@@ -1,0 +1,18 @@
+.ui.grid.three.column
+
+  .column.hide data-function='nested_field_fast:image:item'
+    .ui.grey.label.circular.pointer.small style='position: absolute; top: 5px; right: 5px; z-index: 9;'
+      i.material-icons.white-text.no.margin.large-text-8 &#xE5CD;
+
+    img.ui.bordered.image
+
+br/
+
+.ui.button.icon.red.circular.center-block data-function='nested_field_fast:image:add:trigger'
+  i.material-icons &#xE439;
+
+- if action_name == 'edit'
+  = form.fields_for :images do |a|
+    = render 'image_fields', f: form
+
+= link_to_add_association 'Add Imagem'.html_safe, form, :images, 'data-function': 'nested_field_fast:image:add'

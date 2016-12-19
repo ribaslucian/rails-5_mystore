@@ -18,11 +18,12 @@ function loader_show() {
  *
  * @return {void}
  */
-function loader_hide() {
+function loader_hide(return_scroll) {
   // apresentar o scroll da pág.
   $('body').css('overflow', 'auto');
   $('._page-loader').hide();
-  $('html, body').animate({ scrollTop: 0 }, 'fast');
+  if (return_scroll)
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
 }
 
 /**

@@ -64,7 +64,7 @@ $(document).ready(function() {
       // adicinando um novo elemento HTML
       item = $('[data-function="nested_field_fast:image:item"]').first();
       clone = item.clone().removeClass('hide');
-      clone.appendTo(item.parent('div'));
+      clone.prependTo(item.parent('div'));
 
       // definindo a imagem selecionada como fundo do elemento
       var file = this.files[0];

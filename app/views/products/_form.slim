@@ -1,8 +1,13 @@
-.ui.three.column.grid.stackable.centered
+= form_for @product, html: {class: 'ui form large'} do |f|
 
-  .eight.wide.column
+  br/
+  
+  = render 'images/dynamic_form_fields', form: f
+  
+  br/
 
-    = form_for @product, html: {class: 'ui form large'} do |f|
+  .ui.three.column.grid.stackable.centered
+    .eight.wide.column
 
       .field
         .ui.left.icon.input
@@ -33,8 +38,9 @@
 
       .field
         = f.text_area :description, placeholder: 'Descrição'
-
-      = render 'images/dynamic_form_fields', form: f
+      
+      br/
+      .ui.divider
 
       .ui.segment.basic.right.aligned
         button.ui.button.blue.large Salvar

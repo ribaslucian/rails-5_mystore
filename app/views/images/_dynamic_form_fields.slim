@@ -1,5 +1,5 @@
 .ui.equal.height.five.column.grid.centered.stackable
-  .column.pointer data-function='nested_field_fast:image:add:trigger'
+  .column.pointer data-function='nested_field_fast:image:add'
     .ui.segment.basic.white-bg
       .image-content style='height: 193px; background-color: #f1f4f5; background-position: center center; background-size: cover; background-repeat: no-repeat;'
         .small-text-3.grey-text.center-block.relative.bold-1 style='top: 70px;' 
@@ -7,7 +7,7 @@
             i.material-icons &#xE439;
           | Adicionar Imagem
 
-  .column.hide data-function='nested_field_fast:image:item'
+  .column.hide data-function='nested_field_fast:image:element'
     .ui.segment.basic.white-bg
       .image-content style='height: 150px; background-color: #d9d9d9; background-position: center center; background-size: cover; background-repeat: no-repeat;'
         .small-text-3.grey-text.center-block.relative.bold-1 style='top: 65px;' 
@@ -22,6 +22,6 @@
     = form.fields_for :images do |a|
       = render 'image_fields', f: form
 
-  = link_to_add_association 'Add Imagem'.html_safe, form, :images, 'data-function': 'nested_field_fast:image:add'
-  
+  = link_to_add_association 'Add Imagem'.html_safe, form, :images, 'data-function': 'nested_field_fast:field:add'
+
 br/

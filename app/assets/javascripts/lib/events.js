@@ -50,44 +50,4 @@ $(document).ready(function() {
     }
   });
 
-  // nested_field_fast
-    $('body').on('click', '[data-function="nested_field_fast:image:add:trigger"]', function() {
-      // disparamos uma trigger para o botão de adicionar um novo nested field para upload da imagem
-      $('[data-function="nested_field_fast:image:add"]').trigger('click');
-
-      // disparamos uma trigger para clicar no nested field inserido anteriormente
-      $('[data-function="nested_field_fast:image:field"]').last().trigger('click');
-    });
-
-    $('body').on('change', '[data-function="nested_field_fast:image:field"]', function() {
-      loader_show();
-      // adicinando um novo elemento HTML
-      item = $('[data-function="nested_field_fast:image:item"]').first();
-      clone = item.clone().removeClass('hide');
-      clone.prependTo(item.parent('div'));
-
-      // definindo a imagem selecionada como fundo do elemento
-      var file = this.files[0];
-      var reader = new FileReader();
-
-      reader.onloadend = function () {
-        // $('img', clone).attr('src', reader.result);
-        $('.image-content', clone).html('').css('background-image', 'url(' + reader.result + ')');
-      }
-
-      if (file) reader.readAsDataURL(file);
-      loader_hide(false);
-    });
-
-    $('body').on('click', '[data-function="nested_field_fast:image:remove"]', function() {
-      // identificamos a posicao da imagem que foi clicada no nomento
-      index = $('[data-function="nested_field_fast:image:remove"]').index(this) - 1;
-
-      // encontramos o botao de remocao do campo relacionado a posicao da imagem
-      $('[data-function="nested_field_fast:image:field:remove"]:eq(' + index + ')').trigger('click');
-
-      // remover a imagem do documento
-      $(this).parents('[data-function="nested_field_fast:image:item"]').remove();
-    });
-
 });

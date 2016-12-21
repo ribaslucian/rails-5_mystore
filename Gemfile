@@ -47,8 +47,7 @@ gem 'toastr_rails', '~> 2.1', '>= 2.1.1'
 # google material design icons
 gem 'material_icons', '~> 2.2'
 # framework front-end
-# gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.4.0'
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.4.0'
 # mask form inputs
 # gem 'maskedinput-rails', '~> 1.4'
 # carousel images
@@ -81,6 +80,8 @@ gem 'devise', '~> 4.2'
 gem 'rails-i18n', '~> 5.0.0'
 # mask and validate cpf/cnpj
 gem 'cpf_cnpj', '~> 0.3.0'
+# forms
+gem 'simple_form', '~> 3.3', '>= 3.3.1'
 
 group :development do
   # Use sqlite3 as the database for Active Record

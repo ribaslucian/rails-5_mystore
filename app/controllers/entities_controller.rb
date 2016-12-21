@@ -33,7 +33,6 @@ class EntitiesController < ApplicationController
   # GET /entities/1.json
   def show
     # se for requisicao ajax vamos utilizar o layout modal
-    sleep 2
     render partial: 'entity', layout: 'modal', formats: [:html] if request.xhr?
 
     # respond_to do |format|

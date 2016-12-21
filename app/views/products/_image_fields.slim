@@ -1,1 +1,4 @@
-= render 'images/form_fields', f: f, resource: @product
+- if !defined? builder
+  = render 'images/form_fields', f: f, resource: @product
+- else
+  = render 'images/form_fields', f: f, builder: builder, resource: @product

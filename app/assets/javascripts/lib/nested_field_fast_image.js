@@ -33,7 +33,6 @@ $(document).ready(function() {
       // adicinando um novo elemento HTML
       item = $(image_element).first(); // obtemos o elemento que sera o modelo para os sub-sequentes
       clone = item.clone().removeClass('hide'); // adicionamos visibilidade ao elemento duplicado
-      clone.insertBefore(image_add); // adicionamos o novo item ao documento HTML
 
       // definindo a imagem selecionada como fundo do elemento
       var file = this.files[0];
@@ -44,6 +43,7 @@ $(document).ready(function() {
       }
 
       if (file) reader.readAsDataURL(file);
+      clone.insertBefore(image_add); // adicionamos o novo item ao documento HTML
       loader_hide(false);
     });
 
@@ -53,7 +53,6 @@ $(document).ready(function() {
       // 2º encontramos o botao de remocao do campo relacionado a posicao da imagem e clicamos
       // 3º remover a imagem do documento
       index = $(image_remove).index(this);
-      alert(index);
       $(field_remove + ':eq(' + index + ')').trigger('click');
       $(this).parents(image_element).remove();
     });
@@ -62,6 +61,17 @@ $(document).ready(function() {
 
     $(window).load(function() {
 
+      // verificamos se ha algum campo nested relacionado a entidade de edicao
+      if ($(field).length > 0) {
+        // percorremos os inputs de imagens já selecionadas
+        $(field).each(function() {
+            // adicinando um novo elemento HTML
+            item = $(image_element).first(); // obtemos o elemento que sera o modelo para os sub-sequentes
+            clone = item.clone().removeClass('hide'); // adicionamos visibilidade ao elemento duplicado
+            clone.insertBefore(image_add); // adicionamos o novo item ao documento HTML
+            $('.image-content', clone).html('').css('background-image', 'url(' + $(this).attr('data-value') + ')');
+        });
+      }
     });
 
 });

@@ -1,4 +1,4 @@
-= form_for @product, html: {class: 'ui form large'} do |f|
+= simple_form_for @product, html: {class: 'ui form large'} do |f|
 
   br/
   
@@ -11,33 +11,33 @@
 
       .field
         .ui.left.icon.input
-          = f.text_field :code, placeholder: 'Código'
+          = f.input_field :code, placeholder: 'Código'
           i.barcode.icon
 
       .field
-        = f.text_field :name, placeholder: 'Nome'
+        = f.input_field :name, placeholder: 'Nome'
 
       .field
         .ui.left.icon.input
-          = f.text_field :price, placeholder: 'Preço'
+          = f.input_field :price, placeholder: 'Preço'
           i.money.icon
 
       .field
-        = f.select :category_ids, Category.all.select(:id, :name).collect { |c| [ c.name, c.id ] }, {include_blank: 'Categorias...'}, {required: 'true', class: 'ui dropdown', multiple: ''}
+        = f.input_field :category_ids, collection: Category.all.select(:id, :name), prompt: 'Categorias...', class: 'ui dropdown', multiple: ''
 
       .two.fields
         .field
           .ui.left.icon.input
-            = f.text_field :weight, placeholder: 'Peso'
+            = f.input_field :weight, placeholder: 'Peso'
             i.law.icon
 
         .field
           .ui.left.icon.input
-            = f.number_field :stock, placeholder: 'Estoque'
+            = f.input_field :stock, placeholder: 'Estoque'
             i.cubes.icon
 
       .field
-        = f.text_area :description, placeholder: 'Descrição'
+        = f.input_field :description, placeholder: 'Descrição'
       
       br/
       .ui.divider

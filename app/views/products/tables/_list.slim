@@ -7,7 +7,7 @@
     - smart_listing.collection.each do |product|
 
       .column.stretched
-        .ui.segment.basic.white-bg.no.padding-bottom
+        .ui.segment.basic.white-bg.no.padding-bottom data-function='dimmer_actions'
 
           .thumb.carousel
             - product.images.each do |image|
@@ -53,3 +53,10 @@
 
 br/
 br/
+
+javascript:
+  $('[data-function="dimmer_actions"]').hover(function() {
+    $('.dimmer', $(this)).dimmer('show');
+  }, function() {
+    $('.dimmer', $(this)).dimmer('hide');
+  });

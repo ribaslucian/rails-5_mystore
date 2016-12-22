@@ -9,6 +9,7 @@ function empty(value){
  */
 function loader_show() {
   // esconder o scroll da pág.
+  $('.dimmer').dimmer({duration: { show: 500, hide: 0}}).dimmer('hide');
   $('body').css('overflow', 'hidden');
   $('._page-loader').show();
 }

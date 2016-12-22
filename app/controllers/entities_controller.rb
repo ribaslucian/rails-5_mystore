@@ -34,11 +34,6 @@ class EntitiesController < ApplicationController
   def show
     # se for requisicao ajax vamos utilizar o layout modal
     render partial: 'entity', layout: 'modal', formats: [:html] if request.xhr?
-
-    # respond_to do |format|
-    #   format.html
-    #   format.js { render partial: 'entity', layout: 'modal' }
-    # end
   end
 
   # GET /entities/new

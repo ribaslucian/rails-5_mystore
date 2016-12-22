@@ -1,9 +1,8 @@
 .nested-fields
-
-  - if defined? builder
-    = builder.hidden_field :_destroy
-    = f.input :avatar, as: :file, input_html: {'data-function': 'nested_field_fast:field', 'data-value': @product.images[builder.index].avatar.url(:medium)}
-  - else
-    = f.input :avatar, as: :file, input_html: {'data-function': 'nested_field_fast:field'}
   
+  - if action_name == 'edit'
+    = f.file_field :avatar, 'data-function': 'nested_field_fast:field', 'data-value': @product.images[f.index.to_i].avatar.url(:medium)
+  - else
+    = f.file_field :avatar, style: 'border: 1px solid blue;', 'data-function': 'nested_field_fast:field'
+
   = link_to_remove_association '<i class="icon minus"></i>'.html_safe, f, class: 'ui button yellow tiny icon', 'data-function': 'nested_field_fast:field:remove'

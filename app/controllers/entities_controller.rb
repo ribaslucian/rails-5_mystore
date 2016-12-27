@@ -26,7 +26,7 @@ class EntitiesController < ApplicationController
       filter: "%#{params[:filter]}%"
     ]) if params[:filter]
 
-    @entities = smart_listing_create :entities, entities_scope, partial: 'entities/tables/list', default_sort: {name: 'asc'}
+    @entities = smart_listing_create :entities, entities_scope, partial: 'entities/tables/list', default_sort: {is_juridic: 'asc', name: 'asc'}
   end
 
   # GET /entities/1

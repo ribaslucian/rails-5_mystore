@@ -43,3 +43,4 @@
 
 /* rewrite defaults */
 a:hover:not(.button) { background: none !important; }
+.material-icons.inline { bottom: -7px; position: relative;}

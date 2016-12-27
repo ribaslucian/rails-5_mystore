@@ -80,8 +80,6 @@ gem 'devise', '~> 4.2'
 gem 'rails-i18n', '~> 5.0.0'
 # mask and validate cpf/cnpj
 gem 'cpf_cnpj', '~> 0.3.0'
-# forms
-gem 'simple_form', '~> 3.3', '>= 3.3.1'
 
 group :development do
   # Use sqlite3 as the database for Active Record
@@ -110,4 +108,5 @@ group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end
 
+gem 'rails-angular-material', '~> 1.0', '>= 1.0.5'
 # gem 'lrr-basics', github: 'ribaslucian/rails-lrr-basics'

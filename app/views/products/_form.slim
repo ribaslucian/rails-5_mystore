@@ -1,14 +1,9 @@
-= form_for @product, html: {class: 'ui form large'} do |f|
+= form_for @product, html: {class: 'ui form large', multipart: true} do |f|
 
   br/
   
-  / render 'images/dynamic_form_fields', form: f
-  - if action_name == 'edit'
-    = f.fields_for :images do |images|
-      = render 'image_fields', f: images
+  = render 'images/dynamic_form_fields', form: f
 
-  = link_to_add_association 'Add Imagem'.html_safe, f, :images, 'data-function': 'nested_field_fast:field:add'
-  
   br/
 
   .ui.three.column.grid.stackable.centered
@@ -50,4 +45,4 @@
       .ui.segment.basic.right.aligned
         button.ui.button.blue.large Salvar
       
-        = link_to 'Cancelar'.html_safe, entities_path, class: 'ui button large'
+        = link_to 'Cancelar'.html_safe, products_path, class: 'ui button large'

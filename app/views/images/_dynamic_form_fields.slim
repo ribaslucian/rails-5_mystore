@@ -17,10 +17,11 @@
       .ui.button.icon.small.center-block.black data-function='nested_field_fast:image:remove' style='margin-top: 10px !important;'
         i.icon.trash
 
-- if action_name == 'edit'
-  = form.fields_for :images do |builder|
-    = render partial: 'image_fields', locals: {f: form, builder: builder}
-
-= link_to_add_association 'Add Imagem'.html_safe, form, :images, 'data-function': 'nested_field_fast:field:add'
+.hide_
+  - if action_name == 'edit'
+    = form.fields_for :images do |images|
+      = render 'image_fields', f: images
+  
+  = link_to_add_association 'Add Imagem'.html_safe, form, :images, 'data-function': 'nested_field_fast:field:add'
 
 br/

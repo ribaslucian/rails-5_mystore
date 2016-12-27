@@ -18,6 +18,7 @@
 //= require toastr
 //= require cocoon
 //= require smart_listing
+// require angular-material.min
 //
 //= require_tree .
 

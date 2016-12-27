@@ -10,14 +10,17 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
-*= require_self
-*
 *= require material_icons
 *= require toastr
 *= require owl.carousel
 *= require owl.theme
+= require angular-material.min
 *
 *= require_tree .
+*= require_self
 */
 
 @import "semantic-ui";
+body, html {
+  background: #f6f6f6; 
+}

@@ -16,3 +16,4 @@ end
 
 Rails.application.config.time_zone = 'Brasilia'
 Rails.application.config.i18n.default_locale = :'pt-BR'
+# Rails.application.config.assets.paths << Rails.root.join('vendor/assets')

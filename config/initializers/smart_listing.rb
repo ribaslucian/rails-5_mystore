@@ -1,18 +1,18 @@
 SmartListing.configure do |config|
   config.global_options({
-    #:param_names  => {                                              # param names
+    #:param_names  => {                                               # param names
       #:page                         => :page,
       #:per_page                     => :per_page,
       #:sort                         => :sort,
     #},
-    #:array                          => false,                       # controls whether smart list should be using arrays or AR collections
-    #:max_count                      => 12,                         # limit number of rows
-    #:unlimited_per_page             => false,                       # allow infinite page size
-    #:paginate                       => true,                        # allow pagination
-    #:memorize_per_page              => false,                       # save per page settings in the cookie
-    :page_sizes                     => [12],          # set available page sizes array
-    #:kaminari_options               => {:theme => "smart_listing"}, # Kaminari's paginate helper options
-    #:sort_dirs                      => [nil, "asc", "desc"],        # Default sorting directions cycle of sortables
+    #:array                          => false,                        # controls whether smart list should be using arrays or AR collections
+    #:max_count                      => 12,                           # limit number of rows
+    #:unlimited_per_page             => false,                        # allow infinite page size
+    #:paginate                       => true,                         # allow pagination
+    #:memorize_per_page              => false,                        # save per page settings in the cookie
+    :page_sizes                     => [12],                          # set available page sizes array
+    #:kaminari_options               => {:theme => "smart_listing"},  # Kaminari's paginate helper options
+    #:sort_dirs                      => [nil, "asc", "desc"],         # Default sorting directions cycle of sortables
   })
 
   config.constants :classes, {
@@ -47,9 +47,9 @@ SmartListing.configure do |config|
     #:icon_trash            => "glyphicon glyphicon-trash",
     #:icon_inactive         => "glyphicon glyphicon-circle",
     #:icon_show             => "glyphicon glyphicon-share-alt",
-    #:icon_sort_none        => "glyphicon glyphicon-resize-vertical",
-    :icon_sort_up          => "icon arrow down",
-    :icon_sort_down        => "icon arrow up",
+    :icon_sort_none        => 'icon sort',
+    :icon_sort_up          => 'icon sort descending',
+    :icon_sort_down        => 'icon sort ascending',
     #:muted                 => "text-muted",
   }
 

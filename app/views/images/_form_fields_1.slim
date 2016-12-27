@@ -1,4 +1,4 @@
-.nested-fields.hide
+.nested-fields.hide_
   
   - if action_name == 'edit' && !resource.images.empty?
     = form.file_field :avatar, 'data-function': 'nested_field_fast:field', 'data-value': resource.images[form.index.to_i].avatar.url(:medium)

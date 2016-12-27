@@ -12,9 +12,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.2', '>= 4.2.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -26,12 +26,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'byebug', '~> 9.0', '>= 9.0.6', platform: :mri
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  # gem 'web-console'
   # gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -89,7 +87,7 @@ group :development do
   # development basic server
   gem 'thin'
   # rails application console
-  gem 'pry-rails', github: 'rweng/pry-rails'
+  gem 'pry-rails', '~> 0.3.4'
   # generate image object relational
   gem 'rails-erd', '~> 1.5'
   # for print
@@ -110,4 +108,5 @@ group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end
 
+gem 'rails-angular-material', '~> 1.0', '>= 1.0.5'
 # gem 'lrr-basics', github: 'ribaslucian/rails-lrr-basics'

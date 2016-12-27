@@ -1,4 +1,5 @@
 class EntitiesController < ApplicationController
+
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
   # GET /entities
@@ -15,7 +16,7 @@ class EntitiesController < ApplicationController
 
     entities_scope = Entity.includes(
       :person, :corporate
-    ).where(person_type_sql).order('name').all
+    ).where(person_type_sql).all
 
     # Apply the search control filter.
     # Note: `like` method here is not built-in Rails scope. You need to define it by yourself.
@@ -25,12 +26,14 @@ class EntitiesController < ApplicationController
       filter: "%#{params[:filter]}%"
     ]) if params[:filter]
 
-    @entities = smart_listing_create :entities, entities_scope, partial: 'entities/tables/list'
+    @entities = smart_listing_create :entities, entities_scope, partial: 'entities/tables/list', default_sort: {is_juridic: 'asc', name: 'asc'}
   end
 
   # GET /entities/1
   # GET /entities/1.json
   def show
+    # se for requisicao ajax vamos utilizar o layout modal
+    render partial: 'entity', layout: 'modal', formats: [:html] if request.xhr?
   end
 
   # GET /entities/new

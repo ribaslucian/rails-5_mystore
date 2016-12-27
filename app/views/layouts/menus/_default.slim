@@ -7,7 +7,7 @@
   .menu.right
     - if user_signed_in?
       .item
-        img.ui.circular.image.mini.absolute src=current_user.socialpage_photo_url style='top: 11px; left: -16px;'
+        img.ui.circular.image.mini.absolute src=current_user.socialpage_photo_url style='top: 8px; left: -16px;'
         a.ui.label.teal href=logout_path
           = current_user.name.nil? ? current_user.email : current_user.name
 

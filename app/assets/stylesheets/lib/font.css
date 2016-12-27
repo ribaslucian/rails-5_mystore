@@ -1,7 +1,7 @@
 /* application default font */
-@font-face { font-family: 'Varela Round'; font-style: normal; font-weight: 400; src: local('Varela Round'), local('VarelaRound-Regular'), url('../fonts/varela_round.woff2') format('woff2');}
+/*@font-face { font-family: 'Varela Round'; font-style: normal; font-weight: 400; src: local('Varela Round'), local('VarelaRound-Regular'), url('../fonts/varela_round.woff2') format('woff2');}
 :not(i),
-.varela { font-family: 'Varela Round', sans-serif !important; }
+.varela { font-family: 'Varela Round', sans-serif !important; }*/
 
 /*@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 :not(i) { font-family: 'Montserrat', sans-serif !important; }*/

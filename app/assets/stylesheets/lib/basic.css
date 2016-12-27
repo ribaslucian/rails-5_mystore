@@ -1,7 +1,10 @@
+[data-function='loader'] { opacity: 0.6; cursor: progress; }
+
 /* basics */
 .relative { position: relative; }
 .absolute { position: absolute !important; }
 .fixed { position: fixed !important; }
+.layer-up { z-index: 99; }
 .table { display: table; }
 .center-block { display: table !important; margin: 0 auto !important; }
 .justify { text-align: justify; }
@@ -40,3 +43,4 @@
 
 /* rewrite defaults */
 a:hover:not(.button) { background: none !important; }
+.material-icons.inline { bottom: -7px; position: relative;}

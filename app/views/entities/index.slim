@@ -9,22 +9,21 @@
         / render smart listing controls form
         = smart_listing_controls_for :entities do
 
-          / Add search box to form - it submits the form automatically on text change
-          #search_input.ui.right.left.icon.input.fluid
+          / add filter class to submit on text edit
+          #search_input.ui.icon.input.fluid
+            = text_field_tag :filter, '', class: 'prompt search', placeholder: 'Busca por Nome ou Documento', autocomplete: :off, "data-content": 'Pressione <Enter> para aplicar a pesquisa.', "data-variation": 'tiny'
             i.search.icon
-            = text_field_tag :filter, '', class: 'prompt search form-control', placeholder: 'Busca por Nome ou Documento', autocomplete: :off
 
       .column
-        a.ui.button.primary.icon.pull-right href=url_for(new_entity_path) style='margin-left: 10px;' 
-          i.icon.add
+        = link_to '<i class="icon add"></i>'.html_safe, new_entity_path, class: 'ui primary button icon pull-right', style: 'margin-left: 10px;'
 
         .dropdown
           .title.ui.icon.button.basic.icon
-            i.icon.ellipsis.vertical
+            i.icon.filter.vertical
 
           .menu.center.bottom.horizontal
             a.item.icon href=url_for(entities_path) 
-              i.material-icons &#xE5D2;
+              i.material-icons &#xE162;
               | Mostrar Todos
 
             a.item.icon href=url_for(entities_path(is_juridic: 'false'))
@@ -46,4 +45,5 @@
       | Não há 
       b Integrante
       |  registrado
+
     = link_to 'Adicionar', new_entity_path, class: 'centered blue-text'

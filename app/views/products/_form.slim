@@ -2,7 +2,15 @@
 
   br/
   
-  = render 'images/dynamic_form_fields', form: f
+  = render 'images/dynamic_form_fields_1', form: f
+  
+  / #images.ui.segment.basic
+  /   - if (action_name == 'edit')
+  /     = f.fields_for :images do |image|
+  /       = render 'image_fields', f: image
+  / 
+  /   .links.small-text-2.bold-1.center
+  /     = link_to_add_association '<i class="plus icon none-bg"></i> Adicionar Imagem'.html_safe, f, :images, class: 'ui button tiny labeled icon center-block none-bg', 'data-function': 'nested_field_fast:field:add'
 
   br/
 
@@ -43,6 +51,6 @@
       .ui.divider
 
       .ui.segment.basic.right.aligned
-        button.ui.button.blue.large Salvar
+        = f.submit 'Salvar', class: 'ui button blue large'
       
         = link_to 'Cancelar'.html_safe, products_path, class: 'ui button large'
